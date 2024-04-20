@@ -1,5 +1,6 @@
 package com.hotelSweetHome.hotelSweetHome.models.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
@@ -12,7 +13,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "huesped")
+@Table(name = "habitacion")
 public class HabitacionEntity {
 
     @Id
@@ -24,7 +25,9 @@ public class HabitacionEntity {
     @Column(name = "numeroHabitacion", nullable = false)
     private String numeroHabitacion;
 
-    @NotNull(message = "El campo estadoHabitacion no puede ser nulo.")
-    @Column(name = "estadoHabitacion", nullable = false)
-    private String estadoHabitacion;
+    @NotNull(message = "El registro estadoHabitacion no puede ser nulo.")
+    @OneToMany(fetch = FetchType.LAZY)
+    @JoinColumn(name = "idEstado")
+    @JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
+    private EstadoHabitacionEntity estadoHabitacion;
 }
