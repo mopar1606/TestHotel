@@ -40,4 +40,9 @@ public class HuespedEntity {
     @NotNull(message = "El campo emailHuesped no puede ser nulo.")
     @Column(name = "emailHuesped", nullable = false)
     private String emailHuesped;
+
+    @NotNull(message = "El campo hospedado no puede ser nulo.")
+    @Builder.Default
+    @Column(name = "hospedado", nullable = false)
+    private boolean hospedado = false;
 }

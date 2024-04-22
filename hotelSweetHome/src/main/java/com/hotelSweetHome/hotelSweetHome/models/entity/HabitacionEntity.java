@@ -26,7 +26,7 @@ public class HabitacionEntity {
     private String numeroHabitacion;
 
     @NotNull(message = "El registro estadoHabitacion no puede ser nulo.")
-    @OneToMany(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "idEstado")
     @JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
     private EstadoHabitacionEntity estadoHabitacion;
