@@ -8,6 +8,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Data
@@ -29,6 +30,9 @@ public class CheckInEntity {
 
     @Column(name = "fechaSalida", nullable = false)
     private LocalDateTime fechaSalida;
+
+    @Column(name = "total", nullable = false)
+    private BigDecimal total;
 
     @NotNull(message = "El campo adicionalVehiculo no puede ser nulo.")
     @Builder.Default
